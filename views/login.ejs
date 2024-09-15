@@ -1,0 +1,43 @@
+<section class="auth">
+  <div class="banner">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>MAPS BLOG</h1>
+      <p>Innovating the Future, One Post at a Time</p>
+    </div>
+  </div>
+  <div class="form-section">
+    <div class="form">
+      <h1>Welcome back!</h1>
+      <span>Please login to your account</span>
+      <% if (messages.error) { %>
+      <div class="alert alert-danger"><%= messages.error %></div>
+      <% } %>
+
+      <form action="/auth/login" method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</section>
