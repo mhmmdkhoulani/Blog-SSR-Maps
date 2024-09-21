@@ -41,6 +41,9 @@ app.set("view engine", "ejs");
 
 app.use("/", homeRouter);
 app.use("/auth", authRouter);
+app.get("*", (req, res) => {
+  res.render("notfound", { info: { title: "Not found", description: "test" } });
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

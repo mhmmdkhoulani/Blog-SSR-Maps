@@ -2,10 +2,18 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 
 exports.loginPage = (req, res) => {
-  res.render("login");
+  const info = {
+    title: "Login",
+    description: "this page is home page",
+  };
+  res.render("login", { info });
 };
 exports.registerPage = (req, res) => {
-  res.render("register");
+  const info = {
+    title: "Sign up",
+    description: "this page is home page",
+  };
+  res.render("register", { info });
 };
 exports.register = async (req, res) => {
   const body = req.body;

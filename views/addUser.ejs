@@ -1,0 +1,66 @@
+<section class="auth">
+  <div class="container">
+    <h2>Add new user</h2>
+    <form action="/newuser" method="POST" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control <%= errors?.firstName ? 'is-invalid' : '' %>"
+            id="firstName"
+            placeholder="Enter first name"
+            name="firstName"
+            value="<%= formData?.firstName %>"
+          />
+          <% if (errors && errors.firstName) { %>
+          <span class="text-danger mt-3"><%= errors.firstName.msg %></span>
+          <% } %>
+        </div>
+
+        <div class="col mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control <%= errors?.lastName ? 'is-invalid' : '' %>"
+            id="lastName"
+            placeholder="Enter last name"
+            name="lastName"
+            value="<%= formData?.lastName %>"
+          />
+          <% if (errors && errors.lastName) { %>
+          <span class="text-danger mt-3"><%= errors.lastName.msg %></span>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="text"
+          class="form-control <%= errors?.email ? 'is-invalid' : '' %>"
+          id="email"
+          aria-describedby="emailHelp"
+          placeholder="Enter email"
+          name="email"
+          value="<%= formData?.email %>"
+        /><% if (errors && errors.email) { %>
+        <span class="text-danger mt-3"><%= errors.email.msg %></span>
+        <% } %>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          accept=".jpg, .png, .jpeg"
+          name="image"
+        />
+      </div>
+
+      <button type="submit" class="submit">Add</button>
+    </form>
+  </div>
+</section>
